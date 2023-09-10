@@ -1,4 +1,4 @@
-const DIST_DIR = './demo',
+const DIST_DIR = './docs',
       SRC_DIR = './src',
       path = require('path'),
       glob = require('glob'),
