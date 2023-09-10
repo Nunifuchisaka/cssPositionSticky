@@ -11,11 +11,18 @@ const DIST_DIR = './demo',
       TerserPlugin = require('terser-webpack-plugin'),
       entries = {};
 
+glob.sync('*.js', {
+  cwd: SRC_DIR + '/js',
+  ignore: '_*.js',
+}).map(function(key){
+  entries[key.replace('.js', '')] = SRC_PATH + '/js/' + key;
+});
+
 glob.sync('*.scss', {
   cwd: SRC_DIR + '/scss',
   ignore: '_*.scss',
 }).map(function(key){
-  entries[key.replace('.scss', '.css')] = SRC_DIR + '/scss/' + key;
+  entries[key.replace('.scss', '.css')] = SRC_PATH + '/scss/' + key;
 });
 
 module.exports = {
@@ -73,10 +80,14 @@ module.exports = {
       })
     })
   ],
+  optimization: {
+    minimizer: [new TerserPlugin({
+      extractComments: false,
+    })],
+  },
   entry: entries,
   mode: 'production',
   cache: true,
-  watch: true,
   watchOptions: {
     ignored: ['/node_modules', '/gitignore']
   },
