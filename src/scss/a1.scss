@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+  color: #fff;
   background-color: #000;
 }
 
@@ -15,6 +16,7 @@ a {
 $breakpoint1: 767px;
 
 $padding1--pc: 40px;
+$padding1--sp: 4vw;
 
 $height1--pc: 100vh;
 $height1--sp: 100vh;
@@ -281,6 +283,7 @@ $top1--sp: 50vh;
   min-height: 100%;
   max-width: 1200px;
   padding: 0 $padding1--pc;
+  color: #000;
   letter-spacing: .24em;
   box-sizing: border-box;
   &__1 {
@@ -481,6 +484,7 @@ $top1--sp: 50vh;
   width: 100%;
   max-width: 1200px;
   padding: 0 $padding1--pc;
+  color: #000;
   letter-spacing: .24em;
   box-sizing: border-box;
   &__1 {
@@ -579,6 +583,11 @@ $top1--sp: 50vh;
   display: block;
   position: relative;
   text-align: center;
+  img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+  }
   figcaption {
     margin-top: 1em;
   }
@@ -596,6 +605,7 @@ $top1--sp: 50vh;
   justify-content: center;
   position: relative;
   padding: 0 1em;
+  color: #000;
   font-size: min(2.86vw,40px);
   p {
     
@@ -611,5 +621,27 @@ $top1--sp: 50vh;
   @media (max-width: $breakpoint1) {
     padding-top: 40vw;
     font-size: 5.33vw;
+  }
+}
+
+
+/*
+## .aside_1
+内容：
+*/
+
+.aside_1 {
+  position: relative;
+  max-width: 800px;
+  margin: 5em auto;
+  padding: 0 $padding1--pc;
+  &__h1 {
+    font-size: 2em
+  }
+  > p {
+    
+  }
+  @media (max-width: $breakpoint1) {
+    padding: 0 $padding1--sp;
   }
 }
