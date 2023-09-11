@@ -1,7 +1,8 @@
 @use "sass:math";
 
 body {
-  margin: 0
+  margin: 0;
+  background-color: #000;
 }
 
 a {
@@ -87,10 +88,64 @@ $top1--sp: 50vh;
 */
 
 #footer {
+  position: relative;
   padding: 1em;
   text-align: center;
   color: #fff;
   background: #000;
+}
+
+
+/*
+## .container_3
+内容：
+*/
+
+.container_3 {
+  $self: &;
+  position: relative;
+  &__bg {
+    position: sticky;
+    top: 0;
+    height: 0;
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      opacity: 0;
+      transition: opacity 1s;
+      > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  &__contents {
+    position: relative;
+  }
+  &.current_0 #{$self}__bg > div:nth-of-type(1),
+  &.current_1 #{$self}__bg > div:nth-of-type(2),
+  &.current_2 #{$self}__bg > div:nth-of-type(3) {
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+
+/*
+## .container_2
+*/
+
+.container_2 {
+  position: relative;
+  .page_1 {
+    position: sticky;
+    bottom: 0;
+  }
 }
 
 
@@ -155,9 +210,6 @@ $top1--sp: 50vh;
     height: 140vh;
     min-height: unset;
   }
-  &.is_2 {
-    background-color: #fff;
-  }
   &.current_0 #{$self}__1:nth-of-type(1),
   &.current_1 #{$self}__1:nth-of-type(2),
   &.current_2 #{$self}__1:nth-of-type(3),
@@ -194,8 +246,21 @@ $top1--sp: 50vh;
   width: 100%;
   height: 100vh;
   //color: #fff;
-  background: #000 no-repeat 50% 50% / cover;
+  background: no-repeat 50% 50% / cover;
   box-sizing: border-box;
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
   .container_1 & {
     height: 120vh;
   }
